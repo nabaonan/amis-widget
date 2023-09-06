@@ -1,0 +1,17 @@
+{
+  "type": "page",
+  "data": {
+    
+  },
+  "body": [
+   
+  ],
+  "id": "u:98ff22193f88",
+  "asideResizor": false,
+  "style": {
+    "boxShadow": "var(--shadows-shadow-none)"
+  },
+  "pullRefresh": {
+    "disabled": true
+  }
+}
