@@ -1,0 +1,69 @@
+{
+  "type": "page",
+  "title": "Simple Form Page",
+  "regions": [
+    "body"
+  ],
+  "body": [
+    {
+      "type": "stomp",
+      "url": "ws://localhost:61614/chat",
+      "channels": [
+        "666"
+      ],
+      "initFetch": true,
+      "responseKey": "msgs",
+      "id": "u:73eeb3d339a7",
+      "body": [
+        {
+          "type": "json",
+          "id": "u:3d0cf609bc37",
+          "source": "${msgs}"
+        }
+      ],
+      "bindData": "${send}"
+    },
+    {
+      "type": "form",
+      "body": [
+        {
+          "type": "input-text",
+          "id": "u:273313875e59",
+          "name": "send",
+          "label": "想说啥"
+        }
+      ],
+      "id": "form"
+    },
+    {
+      "type": "button",
+      "label": "发送",
+      "onEvent": {
+        "click": {
+          "actions": [
+            {
+              "componentId": "u:61b7b0670e8c",
+              "args": {
+                "value": {
+                  "send": "${GETRENDERERDATA('form','send')}"
+                }
+              },
+              "actionType": "setValue"
+            }
+          ]
+        }
+      },
+      "id": "u:aa66472d8c4a"
+    }
+  ],
+  "id": "u:61b7b0670e8c",
+  "style": {
+    "boxShadow": "var(--shadows-shadow-none)"
+  },
+  "pullRefresh": {
+    "disabled": true
+  },
+  "data": {
+    "send": ""
+  }
+}
