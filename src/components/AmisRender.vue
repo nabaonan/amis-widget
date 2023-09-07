@@ -1,8 +1,8 @@
 <!--
  * @Author: nbn
  * @Date: 2023-09-06 21:27:37
- * @LastEditors: nbn
- * @LastEditTime: 2023-09-06 23:06:07
+ * @LastEditors: nabaonan
+ * @LastEditTime: 2023-09-07 16:11:28
  * @FilePath: /amis-widget/src/components/AmisRender.vue
  * @Description: 
 -->
@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 
-import { SchemaNode, RenderOptions } from 'amis'
+import { SchemaNode, RenderOptions,IScopedContext } from 'amis'
 
 import { Ref, VNodeRef, onMounted, onUnmounted, ref, unref, watchEffect } from "vue";
 
@@ -25,12 +25,11 @@ export interface AmisSdk {
 }
 const scoped = window.amisRequire("amis/embed");
 
-interface AmisInstance {
+type AmisInstance =  {
   unmount: () => void;
   updateSchema: (schema: SchemaNode) => void;
-  getComponentByName: (name: string) => any;
   updateProps: (props: SchemaNode, callback: () => void) => void;
-}
+} & IScopedContext
 
 
 const instance = ref<AmisInstance>()
@@ -44,6 +43,9 @@ const props = defineProps<IProps>()
 
 watchEffect(() => {
   if (props.schema) {
+
+    console.log('amis===', instance.value)
+
     console.log('schema变化', props.schema)
     instance.value?.updateSchema(unref(props.schema))
   }
