@@ -1,8 +1,8 @@
 /*
  * @Author: nbn
  * @Date: 2023-09-06 20:58:47
- * @LastEditors: nabaonan
- * @LastEditTime: 2023-09-07 16:19:08
+ * @LastEditors: nbn
+ * @LastEditTime: 2023-09-07 22:15:27
  * @FilePath: /amis-widget/vite.config.ts
  * @Description: 
  */
@@ -10,25 +10,38 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import mockDevServerPlugin from 'vite-plugin-mock-dev-server'
 import EnhanceLog from 'vite-plugin-enhance-log'
+import veauryVitePlugins  from 'veaury/vite/index.js'
+import react from '@vitejs/plugin-react'
+// import vueSetupExtend from 'vite-plugin-vue-setup-extend-plus';
+// import { viteMockServe } from 'vite-plugin-mock';
+import vueCompiler from '@vue/compiler-sfc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(),
+  plugins: [
 
-    EnhanceLog({
-      splitBy: '\n',
-      endLine: true,
-      preTip: '😈😈😈😈😈😈😈😈😈😈😈😈😈',
-      enableFileName: { enableDir: false}// or enableFileName: { enableDir: false}
-    }),
+  // react(),
+    
+  // vueSetupExtend(),
 
-    mockDevServerPlugin({
-      prefix: ['^/api/','^/mid-platform-devplatform/api/'],
-      include: 'mock/**/*.mock.{ts,js,cjs,mjs,json,json5}',
-      build: {
-        serverPort: 8080
-      }
-    }),
+  EnhanceLog({
+    splitBy: '\n',
+    endLine: true,
+    preTip: '😈😈😈😈😈😈😈😈😈😈😈😈😈',
+    enableFileName: { enableDir: false }// or enableFileName: { enableDir: false}
+  }),
+
+  veauryVitePlugins({
+    type: 'vue',
+  }),
+
+  mockDevServerPlugin({
+    prefix: ['^/api/', '^/mid-platform-devplatform/api/'],
+    include: 'mock/**/*.mock.{ts,js,cjs,mjs,json,json5}',
+    build: {
+      serverPort: 8080
+    }
+  }),
 
   ],
   server: {

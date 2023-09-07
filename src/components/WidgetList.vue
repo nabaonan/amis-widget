@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-06 22:20:28
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-06 23:33:02
+ * @LastEditTime: 2023-09-07 23:41:21
  * @FilePath: /amis-widget/src/components/WidgetList.vue
  * @Description: 
 -->
@@ -16,6 +16,7 @@
 
 
           <AmisRender :schema="item.component"></AmisRender>
+          <!-- <AmisRenderReact :schema="item.component"></AmisRenderReact> -->
           <template #extra>
 
             <Button type="link" @click="message.warn('暂未实现')">实时编辑</Button>
@@ -39,6 +40,7 @@ import { SchemaNode } from 'amis';
 import { List, Card, Button, Modal, message } from 'ant-design-vue'
 import { ref, watchEffect } from 'vue';
 import AmisRender from './AmisRender.vue';
+import AmisRenderReact from './AmisRenderR2V.vue';
 
 type Module = Record<string, () => Promise<unknown>>
 
