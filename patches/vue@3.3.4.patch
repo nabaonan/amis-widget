@@ -1,10 +1,29 @@
+diff --git a/jsx-runtime/index.d.ts b/jsx-runtime/index.d.ts
+index a44382cfbb1347b85e95b076e6b8e9c935005115..5bed206f32c5098e7726f496d712fcf20065e4d6 100644
+--- a/jsx-runtime/index.d.ts
++++ b/jsx-runtime/index.d.ts
+@@ -13,9 +13,9 @@ import type {
+ export { h as jsx, h as jsxDEV, Fragment } from '@vue/runtime-dom'
+ 
+ export namespace JSX {
+-  export interface Element extends VNode {}
++  // export interface Element extends VNode {}
+   export interface ElementClass {
+-    $props: {}
++    // $props: {}
+   }
+   export interface ElementAttributesProperty {
+     $props: {}
 diff --git a/jsx.d.ts b/jsx.d.ts
-index afc1039e46d5339dc7241575f15f72183b3a2f4b..7b545d1c57f335c1b846df2d083b8fd3243b7150 100644
+index afc1039e46d5339dc7241575f15f72183b3a2f4b..18191be202477b5e6730aeb243fd588e0bfc593a 100644
 --- a/jsx.d.ts
 +++ b/jsx.d.ts
-@@ -11,7 +11,7 @@ declare global {
+@@ -9,9 +9,9 @@ import type {
+ 
+ declare global {
    namespace JSX {
-     export interface Element extends VNode {}
+-    export interface Element extends VNode {}
++    // export interface Element extends VNode {}
      export interface ElementClass {
 -      $props: {}
 +      // $props: {}

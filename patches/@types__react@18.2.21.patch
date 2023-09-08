@@ -1,0 +1,30 @@
+diff --git a/index.d.ts b/index.d.ts
+index 857506f9b87840c9197c94f59bf33b3c2e6512b5..4bdd346df3cbcd7d3abafac0d8d11ddc4181165e 100755
+--- a/index.d.ts
++++ b/index.d.ts
+@@ -3242,7 +3242,9 @@ declare global {
+         //  reduce the work of the type-checker.
+         // TODO: Check impact of making React.ElementType<P = any> = React.JSXElementConstructor<P>
+         type ElementType = string | React.JSXElementConstructor<any>;
+-        interface Element extends React.ReactElement<any, any> { }
++      interface Element extends React.ReactElement<any, any> {
++        [k: string]: any
++         }
+         interface ElementClass extends React.Component<any> {
+             render(): React.ReactNode;
+         }
+@@ -3257,8 +3259,12 @@ declare global {
+                 : ReactManagedAttributes<T, P>
+             : ReactManagedAttributes<C, P>;
+ 
+-        interface IntrinsicAttributes extends React.Attributes { }
+-        interface IntrinsicClassAttributes<T> extends React.ClassAttributes<T> { }
++      interface IntrinsicAttributes extends React.Attributes { 
++        [k: string]: any
++        }
++      interface IntrinsicClassAttributes<T> extends React.ClassAttributes<T> { 
++        [k: string]: any
++        }
+ 
+         interface IntrinsicElements {
+             // HTML
