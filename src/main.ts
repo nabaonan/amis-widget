@@ -2,7 +2,7 @@
  * @Author: nabaonan
  * @Date: 2023-09-07 09:54:29
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-07 23:28:38
+ * @LastEditTime: 2023-09-08 23:44:12
  * @FilePath: /amis-widget/src/main.ts
  * @Description: 
  */
@@ -27,5 +27,9 @@ import "amis/sdk/helper.css";
 import './filters/index.ts'
 
 import App from './App.vue'
+import router from './router.ts'
 // import AmisEditor from './components/AmisEditor.vue';
-createApp(App).mount('#app')
+
+const app = createApp(App)
+app.use(router)
+app.mount('#app')

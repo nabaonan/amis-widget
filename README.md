@@ -29,9 +29,10 @@
 
 - [ ] mock server替换成nitro
 
+- [x] 集成vue-router路由，模块做分离，拦截异常页面跳转
+
 
 
 
 ## 注意
-
 
