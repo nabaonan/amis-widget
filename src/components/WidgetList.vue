@@ -1,8 +1,8 @@
 <!--
  * @Author: nbn
  * @Date: 2023-09-06 22:20:28
- * @LastEditors: nbn
- * @LastEditTime: 2023-09-07 23:41:21
+ * @LastEditors: nabaonan
+ * @LastEditTime: 2023-09-08 15:09:43
  * @FilePath: /amis-widget/src/components/WidgetList.vue
  * @Description: 
 -->

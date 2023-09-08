@@ -2,7 +2,7 @@
  * @Author: nabaonan
  * @Date: 2023-09-07 11:45:50
  * @LastEditors: nabaonan
- * @LastEditTime: 2023-09-07 15:05:37
+ * @LastEditTime: 2023-09-08 15:37:19
  * @FilePath: /amis-widget/src/amis/表格嵌套高亮显示.js
  * @Description:
  */
@@ -14,12 +14,12 @@ export default {
       search: "搜索",
       rows: [
         {
-          title: "一级标题",
+          title: "一级搜索标题",
           grade: "X",
           id: 1,
           children: [
             {
-              title: "这是个啥",
+              title: "这是搜索个啥",
               grade: "X",
               id: 1001,
             },
@@ -50,14 +50,8 @@ export default {
             name: "title",
             label: "title",
             type: "html",
-            html: '${name|highlight:${search}}',
-          },
-          {
-            name: "grade",
-            type: "html",
-            html: '<p>${grade}</p>',
-            label: "Grade",
-          },
+            html: '${title|highlight:${search}}',
+          }
         ],
       },
     ],
