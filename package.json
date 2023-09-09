@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@stomp/stompjs": "^7.0.0",
+    "@types/lodash": "^4.14.198",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.4",
@@ -18,6 +19,8 @@
     "amis-editor": "^5.5.0",
     "amis-editor-core": "^5.5.0",
     "ant-design-vue": "^4.0.2",
+    "lodash": "^4.17.21",
+    "mobx-state-tree": "^5.1.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "veaury": "^2.3.12",

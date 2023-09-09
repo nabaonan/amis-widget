@@ -7,8 +7,8 @@ import {
   ScopedComponentType,
 } from "amis";
 
-import amis, { ActionObject } from "amis";
-import { ScopedContext, IScopedContext } from "amis";
+import { ActionObject, ScopedContext } from "amis";
+import type { IScopedContext } from "amis";
 import { SchemaCollection } from "amis";
 import { Client, StompSubscription } from "@stomp/stompjs";
 
@@ -92,7 +92,7 @@ interface StompState {
   error: string;
 }
 
-export class Stomp extends React.Component<StompProps, StompState> {
+export default class Stomp extends React.Component<StompProps, StompState> {
   static contextType = ScopedContext;
   client?: Client;
   subscripts: Record<string, StompSubscription> = {};
@@ -118,16 +118,6 @@ export class Stomp extends React.Component<StompProps, StompState> {
     if (this.props.initFetch) {
       this.connect();
     }
-    const props = this.props;
-    if (this.props.bindData) {
-      // console.log(
-      //   "变量的值是什么",
-      //   props.bindData,
-      //   props.data,
-      //   props.store.data
-      // );
-      // const data = resolveVariableAndFilter(props.bindData, this.props.data);
-    }
   }
 
   connect() {
@@ -139,7 +129,7 @@ export class Stomp extends React.Component<StompProps, StompState> {
         onStompError: (frame) => {
           console.log("Broker reported error: " + frame.headers["message"]);
           console.log("Additional details: " + frame.body);
-          const { env, store } = this.props;
+          const { env } = this.props;
           env.notify("error", frame.headers["message"]);
           this.setState({
             error: frame.headers["message"],
@@ -345,14 +335,15 @@ export class Stomp extends React.Component<StompProps, StompState> {
   }
 }
 
-// @Renderer({
-//   type: "stomp",
-//   autoVar: true,
-//   storeType: "StompStore",
-//   storeExtendsData: true,
-//   isolateScope: true,
-// })
-export default class StompRenderer extends Stomp {
+//react方式注册组件
+@Renderer({
+  type: "stomp",
+  autoVar: true,
+  storeType: "StompStore",
+  storeExtendsData: true,
+  isolateScope: true,
+})
+export class StompRenderer extends Stomp {
   constructor(props: StompProps, context: IScopedContext) {
     super(props);
 
@@ -368,3 +359,14 @@ export default class StompRenderer extends Stomp {
     scoped.unRegisterComponent(this as unknown as ScopedComponentType);
   }
 }
+
+const amisLib = window.amisRequire("amis");
+//sdk方式注册组件  vue用的sdk渲染方式
+amisLib.Renderer({
+  // test: /(^|\/)stomp/,
+  type: "stomp",
+  autoVar: true,
+  storeType: "StompStore",
+  storeExtendsData: true,
+  isolateScope: true,
+})(Stomp);
