@@ -11,52 +11,54 @@
       "channels": [
         "666"
       ],
+    
       "initFetch": true,
       "responseKey": "msgs",
-      "id": "u:73eeb3d339a7",
       "body": [
         {
-          "type": "json",
+          "type": "tpl",
           "id": "u:3d0cf609bc37",
-          "source": "${msgs}"
+          "tpl": "接收到的消息==${msgs|json}"
         }
+       
       ],
-      "bindData": "${send}"
+      "bindData": "${msg}"
     },
     {
       "type": "form",
       "body": [
+       
         {
           "type": "input-text",
           "id": "u:273313875e59",
           "name": "send",
           "label": "想说啥"
+        },
+        {
+          "type": "button",
+          "label": "发送",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "componentId": "page",
+                  "args": {
+                    "value": {
+                      "msg": "${send}"
+                    }
+                  },
+                  "actionType": "setValue"
+                }
+              ]
+            }
+          },
+          "id": "u:aa66472d8c4a"
         }
       ],
       "id": "form"
-    },
-    {
-      "type": "button",
-      "label": "发送",
-      "onEvent": {
-        "click": {
-          "actions": [
-            {
-              "componentId": "u:61b7b0670e8c",
-              "args": {
-                "value": {
-                  "send": "${GETRENDERERDATA('form','send')}"
-                }
-              },
-              "actionType": "setValue"
-            }
-          ]
-        }
-      },
-      "id": "u:aa66472d8c4a"
     }
   ],
-  "id": "u:61b7b0670e8c",
+  "id": "page",
   "style": {
     "boxShadow": "var(--shadows-shadow-none)"
   },
@@ -64,6 +66,6 @@
     "disabled": true
   },
   "data": {
-    "send": ""
+    "msg": ""
   }
 }

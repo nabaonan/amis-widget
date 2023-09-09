@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-09 00:03:18
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-09 00:35:51
+ * @LastEditTime: 2023-09-09 10:54:36
  * @FilePath: /amis-widget/src/Home.vue
  * @Description: 
 -->
@@ -18,7 +18,7 @@
 
       </Menu>
     </Layout.Header>
-    <Layout-content>
+    <Layout.Content>
 
       <div :style="{ background: '#fff', padding: '24px', minHeight: '280px' }">
 
@@ -26,7 +26,7 @@
         <RouterView></RouterView>
 
       </div>
-    </Layout-content>
+    </Layout.Content>
   </Layout>
 </template>
 

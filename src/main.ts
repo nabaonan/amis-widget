@@ -2,7 +2,7 @@
  * @Author: nabaonan
  * @Date: 2023-09-07 09:54:29
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-08 23:44:12
+ * @LastEditTime: 2023-09-09 09:10:35
  * @FilePath: /amis-widget/src/main.ts
  * @Description: 
  */
@@ -25,6 +25,7 @@ import "amis/sdk/helper.css";
 
 
 import './filters/index.ts'
+import './amis-components/renderer/index.ts'
 
 import App from './App.vue'
 import router from './router.ts'
