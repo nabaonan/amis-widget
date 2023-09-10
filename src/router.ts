@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-08 23:33:30
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-09 00:52:23
+ * @LastEditTime: 2023-09-09 17:30:29
  * @FilePath: /amis-widget/src/router.ts
  * @Description: 
  */
@@ -15,6 +15,7 @@ const App = () => import('./App.vue')
 const Home = () => import('./Home.vue')
 const Intr = () => import('./Intr.vue')
 const List = () => import('./components/WidgetList.vue')
+const Playground = () => import('./components/Playground.vue')
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -40,6 +41,10 @@ const router = createRouter({
             {
               path: '/editor',
               component: Editor,
+            },
+            {
+              path: '/playground',
+              component: Playground,
             },
             {
               path: ':pathMatch(.*)*',

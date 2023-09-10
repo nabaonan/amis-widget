@@ -11,6 +11,9 @@
       "channels": [
         "666"
       ],
+      "data": {
+        "msgs": [111]
+      },
     
       "initFetch": true,
       "responseKey": "msgs",

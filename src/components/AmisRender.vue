@@ -1,8 +1,8 @@
 <!--
  * @Author: nbn
  * @Date: 2023-09-06 21:27:37
- * @LastEditors: nabaonan
- * @LastEditTime: 2023-09-08 16:20:35
+ * @LastEditors: nbn
+ * @LastEditTime: 2023-09-11 00:53:39
  * @FilePath: /amis-widget/src/components/AmisRender.vue
  * @Description: 
 -->
@@ -16,7 +16,7 @@
 
 import { SchemaNode, RenderOptions, IScopedContext } from 'amis'
 
-import { Ref, VNodeRef, onMounted, onUnmounted, ref, unref, watchEffect } from "vue";
+import { toRaw, VNodeRef, onMounted, onUnmounted, ref, watchEffect } from "vue";
 
 const $el = ref(null)
 
@@ -36,7 +36,7 @@ type AmisInstance = {
 const instance = ref<AmisInstance>()
 
 interface IProps {
-  schema?: Ref<SchemaNode> | SchemaNode
+  schema?: SchemaNode
 }
 
 const props = defineProps<IProps>()
@@ -45,14 +45,21 @@ const props = defineProps<IProps>()
 watchEffect(() => {
   if (props.schema) {
 
-    instance.value?.updateSchema(unref(props.schema))
+    console.log('更新schema', instance.value)
+    const schema = toRaw(props.schema)
+    if (!instance.value) {
+
+      instance.value = scoped.embed($el.value, schema);
+    }
+    instance.value?.updateSchema(schema)
+
   }
 })
 
 onMounted(() => {
   if (props.schema) {
     console.log('穿件来的schema', props.schema)
-    instance.value = scoped.embed($el.value, props.schema);
+    instance.value = scoped.embed($el.value, toRaw(props.schema));
   }
 
 });
