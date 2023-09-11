@@ -355,6 +355,7 @@ export class StompRenderer extends Stomp {
   componentWillUnmount() {
     super.componentWillUnmount();
     console.log("unmount stomp");
+
     const scoped = this.context as IScopedContext;
     scoped.unRegisterComponent(this as unknown as ScopedComponentType);
   }

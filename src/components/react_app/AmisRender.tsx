@@ -1,4 +1,11 @@
-import React from "react";
+/*
+ * @Author: nabaonan
+ * @Date: 2023-09-08 10:13:40
+ * @LastEditors: nabaonan
+ * @LastEditTime: 2023-09-11 11:32:08
+ * @FilePath: /amis-widget/src/components/react_app/AmisRender.tsx
+ * @Description:
+ */
 import {
   Schema,
   render as renderAmis,

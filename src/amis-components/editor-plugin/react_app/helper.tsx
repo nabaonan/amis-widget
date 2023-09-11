@@ -1,7 +1,7 @@
 /**
  * @file 一些处理方法
  */
-import React from "react";
+// import React from "react";
 import {
   BaseEventContext,
   defaultValue,

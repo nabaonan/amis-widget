@@ -1,27 +1,26 @@
 {
   "compilerOptions": {
+     // "outDir": "lib",
+    // "rootDir": "./",
+    "module": "commonjs",
     "target": "es5",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react",
-
+    "lib": ["ES6", "DOM", "ES2015", "ES2021"],
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    // "importHelpers": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    // "sourceRoot": "",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "skipLibCheck": true,
+    "downlevelIteration": true,
+    "composite": true,
+    "allowJs": true,
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
