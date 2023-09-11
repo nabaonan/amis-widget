@@ -1,8 +1,8 @@
 <!--
  * @Author: nbn
  * @Date: 2023-09-09 17:20:59
- * @LastEditors: nbn
- * @LastEditTime: 2023-09-11 01:02:52
+ * @LastEditors: nabaonan
+ * @LastEditTime: 2023-09-11 19:00:12
  * @FilePath: /amis-widget/src/components/Playground.vue
  * @Description: 
 -->
@@ -64,11 +64,13 @@ monaco.languages.typescript.typescriptDefaults.setEagerModelSync(true);
 const $editor = ref(null)
 const schema = ref(`
 {
-  "type": "page",
+  "type": "form",
+  "debug": true,
   "body": [
     {
-      "type": "input-text",
-      "value": "1"
+      "type": "input-rich-text",
+      "value": "1",
+      "name": "test"
     }
   ]
 }
