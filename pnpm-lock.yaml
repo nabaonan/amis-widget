@@ -70,6 +70,9 @@ dependencies:
   vue-router:
     specifier: ^4.2.4
     version: 4.2.4(vue@3.3.4)
+  vue3-amis-widget:
+    specifier: ^3.2.0
+    version: 3.2.0
 
 devDependencies:
   '@types/lodash':
@@ -2333,6 +2336,10 @@ packages:
     resolution: {integrity: sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==}
     dev: false
 
+  /jquery@3.7.1:
+    resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
+    dev: false
+
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -3538,6 +3545,17 @@ packages:
       vue: 3.3.4(patch_hash=ikkd2t2ssubzrejicsjwopfyae)
     dev: false
 
+  /vue3-amis-widget@3.2.0:
+    resolution: {integrity: sha512-VVYcPtyg6ZfNt2LYVrBvCAkfWCpe5R5ZZvVjRjK5bxCASMKywj0Bm1pxKckicSMTs9z1GbxMaesRqq96vWG5Nw==}
+    engines: {amis-core: '>= 5.2.5', amis-editor-core: '>= 5.2.5', node: '>= 10.13.0', npm: '>= 6.4.1'}
+    dependencies:
+      axios: r2.cnpmjs.org/axios@0.24.0
+      jquery: 3.7.1
+      vue: 3.3.4(patch_hash=ikkd2t2ssubzrejicsjwopfyae)
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   /vue@3.3.4(patch_hash=ikkd2t2ssubzrejicsjwopfyae):
     resolution: {integrity: sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==}
     dependencies:
@@ -3669,6 +3687,16 @@ packages:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==, registry: https://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/argparse/-/argparse-2.0.1.tgz}
     name: argparse
     version: 2.0.1
+    dev: false
+
+  r2.cnpmjs.org/axios@0.24.0:
+    resolution: {integrity: sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==, registry: https://r.cnpmjs.org/, tarball: https://r2.cnpmjs.org/axios/-/axios-0.24.0.tgz}
+    name: axios
+    version: 0.24.0
+    dependencies:
+      follow-redirects: 1.15.2
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   r2.cnpmjs.org/base16@1.0.0:

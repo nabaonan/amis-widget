@@ -27,7 +27,8 @@
     "veaury": "^2.3.12",
     "vite-plugin-mock-dev-server": "^1.3.1",
     "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue-router": "^4.2.4",
+    "vue3-amis-widget": "^3.2.0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.175",

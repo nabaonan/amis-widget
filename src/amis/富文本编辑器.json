@@ -6,6 +6,9 @@
     "type": "input-rich-text",
     "label": "5555"
 
+  },{
+    "type": "form",
+    "debug": true
   }]
 }
 
