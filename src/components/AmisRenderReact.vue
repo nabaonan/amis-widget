@@ -1,0 +1,34 @@
+<!--
+ * @Author: nabaonan
+ * @Date: 2023-09-12 14:27:12
+ * @LastEditors: nabaonan
+ * @LastEditTime: 2023-09-12 17:37:39
+ * @FilePath: /amis-widget/src/components/AmisRenderReact.vue
+ * @Description: 
+-->
+<template>
+  <AmisRenderReact :schema="schema" />
+</template>
+
+<script setup lang="ts">
+import { watchEffect } from 'vue';
+import AmisRender from './react_app/AmisRender'
+// import type {  IProps } from './react_app/AmisRender'
+import { applyPureReactInVue } from 'veaury';
+import { Schema } from 'amis';
+
+
+const AmisRenderReact = applyPureReactInVue(AmisRender)
+
+interface IProps {
+  schema: Schema;
+}
+defineProps<IProps>()
+
+watchEffect(() => {
+
+})
+
+</script>
+
+<style scoped></style>

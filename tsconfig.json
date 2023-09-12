@@ -1,16 +1,13 @@
 {
   "compilerOptions": {
-     // "outDir": "lib",
-    // "rootDir": "./",
-    "module": "commonjs",
+    "module": "ESNext",
+    "useDefineForClassFields": true,
     "target": "es5",
     "lib": ["ES6", "DOM", "ES2015", "ES2021"],
     "jsx": "react-jsx",
-    "moduleResolution": "node",
-    // "importHelpers": true,
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    // "sourceRoot": "",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
@@ -21,6 +18,10 @@
     "downlevelIteration": true,
     "composite": true,
     "allowJs": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

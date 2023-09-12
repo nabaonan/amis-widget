@@ -1,65 +1,25 @@
 /*
  * @Author: nabaonan
- * @Date: 2023-09-08 10:13:40
+ * @Date: 2023-09-12 17:25:53
  * @LastEditors: nabaonan
- * @LastEditTime: 2023-09-11 11:32:08
+ * @LastEditTime: 2023-09-12 17:31:33
  * @FilePath: /amis-widget/src/components/react_app/AmisRender.tsx
  * @Description:
  */
-import {
-  Schema,
-  render as renderAmis,
-  ToastComponent,
-  AlertComponent,
-} from "amis";
+import { render as renderAmis, Schema, RenderOptions } from "amis";
 
-interface IProps {
+export interface RootRenderProps {
+  location?: Location;
+  theme?: string;
+  data?: Record<string, any>;
+  locale?: string;
+  [propName: string]: any;
+}
+export interface IProps {
   schema: Schema;
+  props?: RootRenderProps;
+  options?: RenderOptions;
 }
 export default (props: IProps) => {
-  let theme = "cxd";
-  let locale = "zh-CN";
-
-  return (
-    <>
-      <ToastComponent
-        theme={theme}
-        key="toast"
-        position={"top-right"}
-        locale={locale}
-      />
-      <AlertComponent theme={theme} key="alert" locale={locale} />
-
-      {renderAmis(
-        props.schema,
-
-        {
-          // props
-        },
-        {
-          // env...
-          theme: "cxd", // cxd 或 antd
-        }
-      )}
-    </>
-  );
+  return renderAmis(props.schema, props.props, props.options);
 };
-
-// export default class AmisRender extends React.Component<IProps, any> {
-//   render(): JSX.Element {
-//     // return <>
-
-//     // </>
-//     return renderAmis(
-//       this.props.schema,
-
-//       {
-//         // props
-//       },
-//       {
-//         // env...
-//         theme: "cxd", // cxd 或 antd
-//       }
-//     );
-//   }
-// }

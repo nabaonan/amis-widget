@@ -1,12 +1,14 @@
+// import { registerFilter } from 'amis';
 /*
  * @Author: nabaonan
  * @Date: 2023-09-07 14:32:47
  * @LastEditors: nabaonan
- * @LastEditTime: 2023-09-08 16:16:37
+ * @LastEditTime: 2023-09-12 15:52:46
  * @FilePath: /amis-widget/src/filters/index.ts
  * @Description: 
  */
 const amisLib = window.amisRequire('amis');
+import registeFilter from '../utils/registeFilter'
 
 const customFilter: Record<string, (...args: string[]) => any> = {
   'highlight': (input: string, search: string) => {
@@ -30,5 +32,6 @@ const customFilter: Record<string, (...args: string[]) => any> = {
 
 
 for (const key in customFilter) {
-  amisLib.registerFilter(key, customFilter[key])
+  registeFilter(key, customFilter[key])//react模式
+  registeFilter(key, customFilter[key], 'sdk')//sdk模式
 }

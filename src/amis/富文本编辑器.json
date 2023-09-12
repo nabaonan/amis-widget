@@ -1,0 +1,11 @@
+
+{
+
+  "type": "page",
+  "body": [{
+    "type": "input-rich-text",
+    "label": "5555"
+
+  }]
+}
+
