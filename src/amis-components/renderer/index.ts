@@ -1,40 +1,17 @@
 /*
  * @Author: nbn
  * @Date: 2023-09-09 09:07:38
- * @LastEditors: nabaonan
- * @LastEditTime: 2023-09-12 19:06:23
+ * @LastEditors: nbn
+ * @LastEditTime: 2023-09-12 21:14:45
  * @FilePath: /amis-widget/src/amis-components/renderer/index.ts
  * @Description: 
  */
 
 
-import registeRenderer from '../../utils/registeRenderer'
-import Stomp from './react_app/Stomp'
 
-registeRenderer(Stomp, {
-  type: "stomp",
-  autoVar: true,
-  storeType: "StompStore",
-  storeExtendsData: true,
-  isolateScope: true,
-  framework: 'vue3'
-}, 'react')
+//引入所有的组件，注册事件在组件内部
+const modules = import.meta.glob('./react_app/*.tsx')
 
-
-// amisLib.Renderer({
-//   type: "stomp",
-//   autoVar: true,
-//   storeType: "StompStore",
-//   storeExtendsData: true,
-//   isolateScope: true,
-//   framework: 'vue3'
-// })(Stomp);
-
-// registeRenderer(Stomp, {
-//   type: "stomp",
-//   autoVar: true,
-//   storeType: "StompStore",
-//   storeExtendsData: true,
-//   isolateScope: true,
-//   framework: 'vue3'
-// }, 'sdk')
+for (const path in modules) {
+  modules[path]()
+}

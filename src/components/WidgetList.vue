@@ -1,8 +1,8 @@
 <!--
  * @Author: nbn
  * @Date: 2023-09-06 22:20:28
- * @LastEditors: nabaonan
- * @LastEditTime: 2023-09-12 17:39:39
+ * @LastEditors: nbn
+ * @LastEditTime: 2023-09-12 21:53:12
  * @FilePath: /amis-widget/src/components/WidgetList.vue
  * @Description: 
 -->
@@ -15,7 +15,7 @@
 
 
 
-          <!-- <AmisRender :schema="item.component"></AmisRender> -->
+          <!-- <AmisRenderSDK :schema="item.component"></AmisRenderSDK> -->
           <AmisRenderReact :schema="item.component"></AmisRenderReact>
           <template #extra>
 
@@ -39,7 +39,7 @@
 import { SchemaNode } from 'amis';
 import { List, Card, Button, Modal, message } from 'ant-design-vue'
 import { ref, watchEffect } from 'vue';
-import AmisRender from './AmisRenderSDK.vue';
+// import AmisRenderSDK from './AmisRenderSDK.vue';
 import AmisRenderReact from './AmisRenderReact.vue';
 
 type Module = Record<string, () => Promise<unknown>>

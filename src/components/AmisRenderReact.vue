@@ -1,8 +1,8 @@
 <!--
  * @Author: nabaonan
  * @Date: 2023-09-12 14:27:12
- * @LastEditors: nabaonan
- * @LastEditTime: 2023-09-12 17:37:39
+ * @LastEditors: nbn
+ * @LastEditTime: 2023-09-12 21:40:40
  * @FilePath: /amis-widget/src/components/AmisRenderReact.vue
  * @Description: 
 -->
@@ -11,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { watchEffect } from 'vue';
 import AmisRender from './react_app/AmisRender'
 // import type {  IProps } from './react_app/AmisRender'
 import { applyPureReactInVue } from 'veaury';
@@ -25,9 +24,7 @@ interface IProps {
 }
 defineProps<IProps>()
 
-watchEffect(() => {
 
-})
 
 </script>
 

@@ -7,6 +7,8 @@ import {
   ScopedComponentType,
 } from "amis";
 
+import registeRenderer, { AmisRendererOption } from "@/utils/registeRenderer";
+
 import { ActionObject, ScopedContext } from "amis";
 import type { IScopedContext } from "amis";
 import { SchemaCollection } from "amis";
@@ -336,13 +338,13 @@ export default class Stomp extends React.Component<StompProps, StompState> {
 }
 
 //react方式注册组件
-// @Renderer({
-//   type: "stomp",
-//   autoVar: true,
-//   storeType: "StompStore",
-//   storeExtendsData: true,
-//   isolateScope: true,
-// })
+@Renderer({
+  type: "stomp",
+  autoVar: true,
+  storeType: "StompStore",
+  storeExtendsData: true,
+  isolateScope: true,
+})
 export class StompRenderer extends Stomp {
   constructor(props: StompProps, context: IScopedContext) {
     super(props);
@@ -361,13 +363,15 @@ export class StompRenderer extends Stomp {
   }
 }
 
-// const amisLib = window.amisRequire("amis");
-// //sdk方式注册组件  vue用的sdk渲染方式
-// amisLib.Renderer({
-//   // test: /(^|\/)stomp/,
-//   type: "stomp",
-//   autoVar: true,
-//   storeType: "StompStore",
-//   storeExtendsData: true,
-//   isolateScope: true,
-// })(Stomp);
+const options: AmisRendererOption = {
+  type: "stomp",
+  autoVar: true,
+  storeType: "StompStore",
+  storeExtendsData: true,
+  isolateScope: true,
+  framework: "vue3",
+};
+
+// registeRenderer(StompRenderer, options, "react");
+
+registeRenderer(Stomp, options, "sdk");

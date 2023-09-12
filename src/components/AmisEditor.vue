@@ -2,12 +2,12 @@
  * @Author: nbn
  * @Date: 2023-09-07 23:15:06
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-07 23:16:29
+ * @LastEditTime: 2023-09-12 21:52:28
  * @FilePath: /amis-widget/src/components/AmisEditor.vue
  * @Description: 
 -->
 <template>
-  <AmisRenderReact :schema="schema"></AmisRenderReact>
+  <AmisEditorReact :schema="schema"></AmisEditorReact>
 </template>
 
 <script setup lang="ts">
@@ -21,11 +21,7 @@ defineProps<{
   schema?: Schema
 }>()
 
-
-const AmisRenderReact = applyPureReactInVue(AmisEditor)
-
-
-
+const AmisEditorReact = applyPureReactInVue(AmisEditor)
 </script>
 
 <style scoped></style>

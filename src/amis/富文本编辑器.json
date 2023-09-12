@@ -3,12 +3,12 @@
 
   "type": "page",
   "body": [{
-    "type": "input-rich-text",
-    "label": "5555"
-
-  },{
     "type": "form",
-    "debug": true
+    "debug": false,
+    "body": [{
+      "type": "input-text",
+      "name": "test"
+    }]
   }]
 }
 

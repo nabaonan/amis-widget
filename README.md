@@ -1,3 +1,11 @@
+<!--
+ * @Author: nbn
+ * @Date: 2023-09-08 21:48:49
+ * @LastEditors: nbn
+ * @LastEditTime: 2023-09-12 22:47:15
+ * @FilePath: /amis-widget/README.md
+ * @Description: 
+-->
 
 # 这是一个用来收集amis常用小组件的项目
 
@@ -19,7 +27,7 @@
 
 - [x] 实现实时预览，左侧json编辑框，右侧预览页面（playground）
 
-- [ ] 增加json比对，左右查看不同的配置
+- [x] 增加json比对，左右查看不同的配置
 
 - [ ] 实现一键js转json，可以直接保存到页面编辑器中
 
@@ -38,5 +46,12 @@
 
 
 
-## 注意
+## 存在的问题
+
+- [ ] 使用sdk方式，当引入tinymce组件或者json组件的时候会报错，找不到依赖
+sdk.js:9     GET http://127.0.0.1:5173/node_modules/.vite/deps/tinymce.js net::ERR_ABORTED 504 (Outdated Optimize Dep)
+- [ ] 使用react的方式，点击按钮无法弹出dialog，报错如下
+Uncaught (in promise) Error: dialog 动作执行失败，原因：'get' on proxy: property 'style' is a read-only and non-configurable data property on the proxy target but the proxy did not return its actual value (expected '#<Object>' but got '#<Object>')
+
+
 

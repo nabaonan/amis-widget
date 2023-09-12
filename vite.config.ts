@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-06 20:58:47
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-11 00:43:03
+ * @LastEditTime: 2023-09-12 20:30:00
  * @FilePath: /amis-widget/vite.config.ts
  * @Description: 
  */
@@ -11,10 +11,13 @@ import { defineConfig } from 'vite'
 import mockDevServerPlugin from 'vite-plugin-mock-dev-server'
 import EnhanceLog from 'vite-plugin-enhance-log'
 import veauryVitePlugins from 'veaury/vite/index.js'
+import path from "path";
+
 // import monacoEditorPlugin from 'vite-plugin-monaco-editor';
 
 export default defineConfig({
   plugins: [
+  
 
     EnhanceLog({
       splitBy: '\n',
@@ -45,6 +48,15 @@ export default defineConfig({
     }),
 
   ],
+
+  resolve: {
+    alias: [
+      {
+        find: "@",
+        replacement: path.resolve(__dirname, "src"),
+      },
+    ],
+  },
   server: {
     cors: false,
     // 在 proxy 中配置的 代理前缀， mock-dev-server 才会拦截并mock
