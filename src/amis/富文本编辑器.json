@@ -4,10 +4,20 @@
   "type": "page",
   "body": [{
     "type": "form",
-    "debug": false,
+    "debug": true,
     "body": [{
       "type": "input-text",
       "name": "test"
+    },
+    {
+      "type": "input-rich-text",
+      "name": "test"
+    },
+    {
+      "type": "json",
+      "value": {
+        "test": "test"
+      }
     }]
   }]
 }

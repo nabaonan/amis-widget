@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-06 20:58:47
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-12 20:30:00
+ * @LastEditTime: 2023-09-18 21:52:42
  * @FilePath: /amis-widget/vite.config.ts
  * @Description: 
  */
@@ -48,6 +48,11 @@ export default defineConfig({
     }),
 
   ],
+
+  optimizeDeps: {
+
+    include: ['tinymce']
+  },
 
   resolve: {
     alias: [

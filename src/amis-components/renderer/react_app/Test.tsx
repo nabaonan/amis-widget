@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-12 20:05:40
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-12 21:20:57
+ * @LastEditTime: 2023-09-18 21:42:44
  * @FilePath: /amis-widget/src/amis-components/renderer/react_app/Test.tsx
  * @Description:
  */
@@ -34,3 +34,4 @@ const options: AmisRendererOption = {
 };
 
 registeRenderer(Test, options, "react");
+// registeRenderer(Test, options, "sdk");

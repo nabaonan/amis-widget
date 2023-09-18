@@ -2,19 +2,23 @@
  * @Author: nbn
  * @Date: 2023-09-09 17:20:59
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-12 22:10:44
+ * @LastEditTime: 2023-09-15 22:59:50
  * @FilePath: /amis-widget/src/components/Playground.vue
  * @Description: 
 -->
 <template>
+  <Space>
+
+    <Button @click="toggle">收起/展开</Button>
+  </Space>
   <Row>
 
-    <Col span="12">
+    <Col v-show="!collapse" span="12">
     <div ref="$editor" id="editor"></div>
     <Editor theme="vs-dark" :options="options" language="json" height="90vh" v-model:value="schema">
     </Editor>
     </Col>
-    <Col span="12">
+    <Col :span="collapse ? 24 : 12">
 
     <AmisRenderReact :schema="jsonSchema"></AmisRenderReact>
     </Col>
@@ -25,12 +29,31 @@
 
 <script setup lang="ts">
 import { debounce } from 'lodash';
-import { Col, Row, } from 'ant-design-vue'
+import { Col, Row, Button, Space } from 'ant-design-vue'
 import { ref, watch } from 'vue';
-
+import router from '@/router';
 import AmisRenderReact from './AmisRenderReact.vue'
 
 import { Editor } from '@guolao/vue-monaco-editor'
+
+
+
+const query = router.currentRoute.value.query
+
+
+watch(() => router.currentRoute, () => {
+  console.log('query变化了', query)
+  // import('@/amis/测试stomp.json').then(json => {
+  //   console.log('加载到了', json.default)
+  // })
+  const aaa = '../amis/测试stomp.json'
+  console.log('path----',(query as any)['path'])
+  import(`./${aaa}`).then(json => {
+    console.log('加载到了', json.default)
+  })
+}, {
+  immediate: true
+})
 
 
 const $editor = ref(null)
@@ -49,12 +72,16 @@ const schema = ref(`
 
 `)
 
+
+const collapse = ref(true)
+
+const toggle = () => {
+  collapse.value = !collapse.value
+}
+
 const jsonSchema = ref()
 
-// monaco.editor.create($editor.value, {
-//   value: schema.value,
-//   language: 'json',
-// });
+
 
 
 watch(schema, debounce((val: string) => {

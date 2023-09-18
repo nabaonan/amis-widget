@@ -1,0 +1,17 @@
+{
+  "type":"button",
+  "label": "弹出一个框",
+  "onEvent": {
+    "click": {
+
+      "actions": [
+        {
+          "actionType": "dialog",
+          "dialog": {
+            "body": "sdfsdf"
+          }
+        }
+      ]
+    }
+  }
+}

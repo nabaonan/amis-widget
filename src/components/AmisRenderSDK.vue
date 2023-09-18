@@ -2,8 +2,8 @@
  * @Author: nbn
  * @Date: 2023-09-06 21:27:37
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-11 00:53:39
- * @FilePath: /amis-widget/src/components/AmisRender.vue
+ * @LastEditTime: 2023-09-18 22:10:46
+ * @FilePath: /amis-widget/src/components/AmisRenderSDK.vue
  * @Description: 
 -->
 <template>
@@ -43,7 +43,7 @@ const props = defineProps<IProps>()
 
 
 watchEffect(() => {
-  if (props.schema) {
+  if (props.schema && $el.value) {
 
     console.log('更新schema', instance.value)
     const schema = toRaw(props.schema)

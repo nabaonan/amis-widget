@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-06 22:20:28
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-12 21:53:12
+ * @LastEditTime: 2023-09-18 22:12:10
  * @FilePath: /amis-widget/src/components/WidgetList.vue
  * @Description: 
 -->
@@ -15,8 +15,9 @@
 
 
 
-          <!-- <AmisRenderSDK :schema="item.component"></AmisRenderSDK> -->
-          <AmisRenderReact :schema="item.component"></AmisRenderReact>
+          <AmisRenderSDK :schema="item.component"></AmisRenderSDK>
+          <!-- <AmisRenderReact :schema="item.component"></AmisRenderReact> -->
+          <!-- <AmisRenderReact2 :schema="item.component"></AmisRenderReact2> -->
           <template #extra>
 
             <Button type="link" @click="message.warn('暂未实现')">实时编辑</Button>
@@ -30,17 +31,18 @@
   </List>
 
   <Modal v-model:open="visible" title="预览" :footer="null" :width="1000">
-    <AmisRender :schema="currentSchema"></AmisRender>
+    <AmisRenderSDK :schema="currentSchema"></AmisRenderSDK>
   </Modal>
 </template>
 
 <script  lang="ts" setup>
 
-import { SchemaNode } from 'amis';
+import { Schema, } from 'amis';
 import { List, Card, Button, Modal, message } from 'ant-design-vue'
 import { ref, watchEffect } from 'vue';
-// import AmisRenderSDK from './AmisRenderSDK.vue';
-import AmisRenderReact from './AmisRenderReact.vue';
+import AmisRenderSDK from './AmisRenderSDK.vue';
+// import AmisRenderReact from './AmisRenderReact.vue';
+// import AmisRenderReact2 from './AmisRenderReact2.vue';
 
 type Module = Record<string, () => Promise<unknown>>
 
@@ -77,10 +79,10 @@ watchEffect(() => {
 
 
 const visible = ref(false);
-const currentSchema = ref<SchemaNode>();
+const currentSchema = ref<Schema>();
 
 
-const preview = (json: SchemaNode) => {
+const preview = (json: Schema) => {
   console.log('preview', json)
   visible.value = true;
   currentSchema.value = json
