@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-06 22:20:28
  * @LastEditors: nbn
- * @LastEditTime: 2023-09-18 22:12:10
+ * @LastEditTime: 2023-10-17 22:21:03
  * @FilePath: /amis-widget/src/components/WidgetList.vue
  * @Description: 
 -->
@@ -41,7 +41,7 @@ import { Schema, } from 'amis';
 import { List, Card, Button, Modal, message } from 'ant-design-vue'
 import { ref, watchEffect } from 'vue';
 import AmisRenderSDK from './AmisRenderSDK.vue';
-// import AmisRenderReact from './AmisRenderReact.vue';
+import AmisRenderReact from './AmisRenderReact.vue';
 // import AmisRenderReact2 from './AmisRenderReact2.vue';
 
 type Module = Record<string, () => Promise<unknown>>
