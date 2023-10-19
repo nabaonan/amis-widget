@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-10-17 22:01:11
  * @LastEditors: nbn
- * @LastEditTime: 2023-10-17 22:58:25
+ * @LastEditTime: 2023-10-18 20:34:21
  * @FilePath: /amis-widget/src/amis/自定义定时.js
  * @Description: 
  */
@@ -18,6 +18,14 @@ export default {
       "title": "表格1",
       "data": [
         {
+          "engine": "Trident - tagmei",
+          "browser": "Internet Explorer 4.0",
+          "platform": "Win 95+",
+          "count": 1697554800000,
+          "grade": "X",
+          "badgeText": "默认",
+          "id": 1
+        }, {
           "engine": "Trident - tagmei",
           "browser": "Internet Explorer 4.0",
           "platform": "Win 95+",

@@ -1,0 +1,105 @@
+{
+  "type": "page",
+  "id": "u:5c3bcd642046",
+  "body": [
+    {
+      "id": "u:bb8e498981db",
+      "type": "form",
+      "title": "表单",
+      "debug": true,
+      "mode": "horizontal",
+      "dsType": "api",
+      "feat": "Insert",
+      "body": [
+        {
+          "type": "select",
+          "name": "users",
+          "id": "u:ddeb637e6930",
+          "multiple": true,
+          "joinValues": false,
+          "options": [
+            {
+              "label": "111",
+              "value": "1"
+            },
+            {
+              "label": "2222",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "type": "combo",
+          "label": "组合输入",
+          "name": "users",
+          "multiple": true,
+          "removable": true,
+          "items": [
+            {
+              "type": "flex",
+              "body": [
+                {
+                  "type": "input-text",
+                  "name": "test1",
+                  "placeholder": "文本",
+                  "id": "u:57341e160fc0"
+                }
+              ],
+              "id": "u:d2a,17e87fd78"
+            },
+            {
+              "type": "input-text",
+              "name": "test2",
+              "placeholder": "文本",
+              "id": "u:57341e160fc0"
+            },
+            {
+              "type": "input-text",
+              "name": "input-text",
+              "placeholder": "文本",
+              "id": "u:57341e160fc0"
+            },
+            {
+              "type": "select",
+              "name": "test3",
+              "placeholder": "选项",
+              "options": [
+                {
+                  "label": "A",
+                  "value": "a"
+                },
+                {
+                  "label": "B",
+                  "value": "b"
+                }
+              ],
+              "id": "u:b154e683c450"
+            }
+          ],
+          "id": "u:29019301bc45",
+          "multiLine": false,
+          "addable": false
+        }
+      ],
+      "actions": [
+        {
+          "type": "button",
+          "label": "提交",
+          "onEvent": {
+            "click": {
+              "actions": [
+                {
+                  "actionType": "submit",
+                  "componentId": "u:bb8e498981db"
+                }
+              ]
+            }
+          },
+          "level": "primary",
+          "id": "u:d7caeb8b61ab"
+        }
+      ],
+      "resetAfterSubmit": true
+    }
+  ]
+}

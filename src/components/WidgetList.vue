@@ -2,7 +2,7 @@
  * @Author: nbn
  * @Date: 2023-09-06 22:20:28
  * @LastEditors: nbn
- * @LastEditTime: 2023-10-17 22:21:03
+ * @LastEditTime: 2023-10-18 20:49:23
  * @FilePath: /amis-widget/src/components/WidgetList.vue
  * @Description: 
 -->
@@ -15,8 +15,8 @@
 
 
 
-          <AmisRenderSDK :schema="item.component"></AmisRenderSDK>
-          <!-- <AmisRenderReact :schema="item.component"></AmisRenderReact> -->
+          <!-- <AmisRenderSDK :schema="item.component"></AmisRenderSDK> -->
+          <AmisRenderReact :schema="item.component"></AmisRenderReact>
           <!-- <AmisRenderReact2 :schema="item.component"></AmisRenderReact2> -->
           <template #extra>
 
