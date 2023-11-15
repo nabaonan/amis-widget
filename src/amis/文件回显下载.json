@@ -1,0 +1,41 @@
+{
+  "type": "form",
+  "title": "表单",
+  "body": [
+    {
+      "type": "input-file",
+      "label": "文件上传",
+      "autoUpload": true,
+      "proxy": true,
+      "uploadType": "fileReceptor",
+      "name": "fileList",
+      "id": "u:2d635d23e7af",
+      "btnLabel": "文件上传",
+      "multiple": true,
+      "useChunk": false,
+      "accept": "",
+      "drag": false,
+      "joinValues": false,
+      "fileField": "file",
+      "nameField": "fileName",
+      "downloadUrl": "${HOST}/${SUBAPPKEY}/api/basic_functions/datatool/v1/file_up/file_download?filePath=${filePath}",
+      "urlField": "filePath",
+      "valueField": "filePath"
+    }
+  ],
+  "id": "u:ca2a8cf8269f",
+  "data": {
+    "fileList": [
+      {
+        "deleteFlag": 0,
+        "fileName": "image (1)1724611479486525442",
+        "createTime": "2023-11-15 10:13:19",
+        "filePath": "/oneclickwt-20231016134139501751584250658816/work-order-main/file/image (1)1724611479486525442.png",
+        "id": "1724611506271350785",
+        "fileType": "png",
+        "ticketId": "1724611505956777986"
+      }
+    ]
+  },
+  "debug": true
+}
