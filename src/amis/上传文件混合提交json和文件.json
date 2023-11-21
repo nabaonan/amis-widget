@@ -1,0 +1,86 @@
+{
+  "type": "page",
+  "css": {
+  },
+  "body": [
+    {
+      "type": "input-file",
+      "label": "文件上传",
+      "autoUpload": true,
+      "proxy": true,
+      "uploadType": "fileReceptor",
+      "name": "fileList",
+      "id": "u:a9d7ad21255e",
+      "receiver": {
+        "url": "${HOST}/${SUBAPPKEY}/api/basic_functions/datatool/v1/file_up/upload_others",
+        "method": "post",
+        "requestAdaptor": "\nconsole.log('打印下上传值',api.data.get('ticketId'),api.data.get('file'));\n\nconst formData = api.data;\nconst request = {\n  ticketId: formData.get('ticketId')\n}\nformData.append('request', new Blob([JSON.stringify(request)], { type: \"application/json\" }), \"blob\");\nreturn api;",
+        "adaptor": "",
+        "messages": {
+        },
+        "data": {
+          "ticketId": "${id}",
+          "&": "$$"
+        },
+        "receiver": {
+          "url": "${HOST}/${SUBAPPKEY}/api/basic_functions/datatool/v1/file_up/upload_others",
+          "type": "input-file",
+          "label": "文件上传",
+          "autoUpload": true,
+          "proxy": true,
+          "uploadType": "fileReceptor",
+          "name": "fileList",
+          "id": "u:a9d7ad21255e",
+          "themeConfig": {
+          },
+          "method": "post",
+          "requestAdaptor": "console.log('data', api.data);\nconst { file, ...request } = api.data\nconst formData = new FormData();\n\nformData.append('request', new Blob([JSON.stringify(request)], { type: \"application/json\" }), \"blob\");\nfile && formData.append('file', file);\n\napi.data = formData\nreturn api",
+          "adaptor": "",
+          "messages": {
+          },
+          "data": {
+            "&": "$$",
+            "ticketId": "${id}",
+            "file": "${file}"
+          }
+        },
+        "btnLabel": "文件上传",
+        "multiple": false,
+        "useChunk": false,
+        "accept": "",
+        "drag": false,
+        "dataType": "form-data"
+      },
+      "btnLabel": "文件上传",
+      "multiple": false,
+      "useChunk": false,
+      "accept": "",
+      "drag": false,
+      "asBlob": false,
+      "onEvent": {
+        "change": {
+          "weight": 0,
+          "actions": [
+            {
+              "args": {
+              },
+              "script": "/* 自定义JS使用说明：\n  * 1.动作执行函数doAction，可以执行所有类型的动作\n  * 2.通过上下文对象context可以获取当前组件实例，例如context.props可以获取该组件相关属性\n  * 3.事件对象event，在doAction之后执行event.stopPropagation();可以阻止后续动作执行\n*/\nconst myMsg = '我是自定义JS';\nconsole.log('打印上传值', event.data);\n// doAction({\n//   actionType: 'toast',\n//   args: {\n//     msg: myMsg\n//   }\n// });\n",
+              "actionType": "custom"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "data": {
+    "id": "6566456",
+    "HOST": "https://wutong.yunlizhihui.com/mid-platform-devplatform/sandbox/20231016134139501751583894142976/proxy",
+    "SUBAPPKEY": "work-order-main",
+    "SHOW_PATH": "/mid-platform-devplatform/api/fe-resource"
+  },
+  "id": "u:f0cb4809579b",
+  "asideResizor": false,
+  "style": {
+    "boxShadow": " 0px 0px 0px 0px transparent"
+  }
+}
