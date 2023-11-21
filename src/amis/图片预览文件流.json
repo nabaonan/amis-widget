@@ -1,0 +1,71 @@
+{
+  "type": "page",
+  "id": "page",
+  "css": {
+  },
+  "body": [
+   
+    {
+      "type": "button",
+      "label": "按钮",
+      "onEvent": {
+        "click": {
+          "actions": [
+            {
+              "args": {
+                "options": {
+                  "silent": false
+                },
+                "api": {
+                  "url": "${HOST}/${SUBAPPKEY}/api/conf/datatool/v1/base/build_image",
+                  "method": "get",
+                  "requestAdaptor": "",
+                  "adaptor": "",
+                  "messages": {
+                  },
+                  "dataType": "json",
+                  "responseType": "blob"
+                }
+              },
+              "outputVar": "responseResult",
+              "actionType": "ajax"
+            },
+            {
+              "script": "/* 自定义JS使用说明：\n  * 1.动作执行函数doAction，可以执行所有类型的动作\n  * 2.通过上下文对象context可以获取当前组件实例，例如context.props可以获取该组件相关属性\n  * 3.事件对象event，在doAction之后执行event.stopPropagation();可以阻止后续动作执行\n*/\nconst myMsg = '我是自定义JS';\n\n\nconst blobToBase64 = async (blob) => {\n  return new Promise((resolve, reject) => {\n    const reader = new FileReader();\n    reader.readAsDataURL(blob);\n    reader.onload = (e) => {\n      const base64 = e.target.result\n      console.log(\"base64\", base64);\n      resolve(base64);\n    }\n  });\n}\nconsole.log('返回的数据是啥撒', event.data);\n// const blob = new Blob([event.data.responseResult.data], {\n//   type: 'image/png'\n// });\n// blob.text().then(text => {\n\n//   console.log('text===', text);\n// });\n\nblobToBase64(event.data.responseResult.result).then(result => {\n  console.log('返回的数据', result);\n\n  doAction({\n    actionType: \"setValue\",\n    componentId: \"page\",\n    args: {\n      value: {\n        src: result\n      }\n    }\n  })\n});\n\n",
+              "actionType": "custom"
+            }
+          ]
+        }
+      },
+      "id": "u:05614a490777"
+    },
+    {
+      "type": "image",
+      "id": "img",
+      "src": "${src}"
+    },
+    {
+      "type": "tpl",
+      "tpl": "${src}",
+      "inline": true,
+      "wrapperComponent": "",
+      "id": "u:6d2f7a037a63",
+      "style": {
+        "boxShadow": " 0px 0px 0px 0px transparent"
+      }
+    }
+  ],
+  "data": {
+    "HOST": "",
+    "src": "",
+    "SUBAPPKEY": "conf-guarantee-main",
+    "SHOW_PATH": "/mid-platform-devplatform/api/fe-resource"
+  },
+  "asideResizor": false,
+  "style": {
+    "boxShadow": " 0px 0px 0px 0px transparent"
+  },
+  "pullRefresh": {
+    "disabled": true
+  }
+}
