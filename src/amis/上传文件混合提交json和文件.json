@@ -74,7 +74,7 @@
   ],
   "data": {
     "id": "6566456",
-    "HOST": "https://wutong.yunlizhihui.com/mid-platform-devplatform/sandbox/20231016134139501751583894142976/proxy",
+    "HOST": "",
     "SUBAPPKEY": "work-order-main",
     "SHOW_PATH": "/mid-platform-devplatform/api/fe-resource"
   },
