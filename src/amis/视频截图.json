@@ -1,0 +1,50 @@
+{
+  "type": "page",
+  "css": {
+  },
+  "body": [
+    {
+      "type": "tpl",
+      "id": "u:ae22b9f363ab",
+      "tpl": "图片地址:${imgUrl}"
+    },
+    {
+      "type": "image",
+      "id": "u:95820b736f3d",
+      "src": "${imgUrl}",
+      "enlargeAble": false
+    },
+    {
+      "type": "button",
+      "onEvent": {
+        "click": {
+          "actions": [
+            {
+              "actionType": "custom",
+              "script": "console.log('打印一下')\n\n\nvar captureImage = function () {\n  const video = document.body.querySelector('.custom-video .video-react-video');\n  video.crossOrigin = \"anonymous\";\n  var scale = 0.25;\n  var canvas = document.createElement(\"canvas\");\n  canvas.width = video.videoWidth * scale;\n  canvas.height = video.videoHeight * scale;\n  const ctx = canvas.getContext('2d');\n  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);\n\n  // document.body.querySelector(\".custom-video\").appendChild(canvas);\n\n  setTimeout(() => {\n    doAction({\n      actionType: \"setValue\",\n      args: {\n        value: {\n          imgUrl: canvas.toDataURL()\n        }\n      },\n      componentId: 'page'\n    })\n  },500)\n  \n  \n};\n\ncaptureImage()\n"
+            }
+          ]
+        }
+      },
+      "id": "u:1b5701f33906",
+      "label": "点击截图"
+    },
+    {
+      "type": "video",
+      "src": "https://stream7.iqilu.com/10339/upload_transcode/202002/09/20200209104902N3v5Vpxuvb.mp4",
+      "poster": "",
+      "id": "u:f64a9d60a4c7",
+      "className": "custom-video",
+      "aspectRatio": "auto"
+    }
+  ],
+  "data": {
+    
+    "imgUrl": ""
+  },
+  "id": "page",
+  "asideResizor": false,
+  "style": {
+    "boxShadow": " 0px 0px 0px 0px transparent"
+  }
+}
