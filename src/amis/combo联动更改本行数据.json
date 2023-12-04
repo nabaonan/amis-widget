@@ -1,0 +1,83 @@
+{
+  "type": "page",
+  "css": {
+  },
+  "body": [
+   
+    {
+      "type": "form",
+      "title": "表单",
+      "body": [
+        {
+          "type": "combo",
+          "label": "组合输入",
+          "name": "combo",
+          "multiple": true,
+          "addable": true,
+          "removable": true,
+          "removableMode": "icon",
+          "addBtn": {
+            "label": "新增",
+            "icon": "fa fa-plus",
+            "level": "primary",
+            "size": "sm",
+            "id": "u:d9eebf123360"
+          },
+          "items": [
+            {
+              "type": "select",
+              "name": "select",
+              "placeholder": "选项",
+              "options": [
+                {
+                  "label": "A",
+                  "value": "a",
+                  "id": "555"
+                },
+                {
+                  "label": "B",
+                  "value": "b",
+                  "id": 6666
+                }
+              ],
+              "id": "u:198606406cf9",
+              "multiple": false,
+              "onEvent": {
+                "change": {
+                  "weight": 0,
+                  "actions": [
+                    {
+                      "componentId": "u:91117c4ce249",
+                      "args": {
+                        "fromPage": true,
+                        "value": {
+                          "test": "${event.data.selectedItems.id}"
+                        },
+                        "index": "${index}"
+                      },
+                      "actionType": "setValue"
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "id": "u:91117c4ce249"
+        }
+      ],
+      "id": "u:0361f0154411",
+      "debug": true
+    }
+  ],
+  "data": {
+   
+  },
+  "id": "u:48feb9b6c251",
+  "asideResizor": false,
+  "style": {
+    "boxShadow": " 0px 0px 0px 0px transparent"
+  },
+  "pullRefresh": {
+    "disabled": true
+  }
+}
