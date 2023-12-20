@@ -1,0 +1,64 @@
+{
+  "type": "page",
+  "css": {},
+  "body": [
+    {
+      "type": "tpl",
+      "tpl": "Hello 梧桐",
+      "wrapperComponent": "",
+      "inline": false,
+      "id": "u:2687e8664cd4"
+    },
+    {
+      "type": "form",
+      "title": "表单",
+      "body": [
+        {
+          "type": "input-time",
+          "label": "日期",
+          "name": "start",
+          "format": "HH:mm",
+          "inputFormat": "HH:mm",
+          "id": "u:f2649c343719",
+          "validations": {
+            "isTimeBefore": "${end}"
+          },
+          "timeConstraints": {
+            "hours": {
+              "min": 8,
+              "max": 14
+            }
+          }
+        },
+        {
+          "type": "input-time",
+          "label": "日期",
+          "name": "end",
+          "format": "HH:mm",
+          "inputFormat": "HH:mm",
+          "id": "u:94438f385aa6",
+          "validations": {
+            "isTimeAfter": "${start}"
+          },
+          "timeConstraints": {
+            "hours": {
+              "min": 8,
+              "max": 14
+            }
+          }
+        }
+      ],
+      "id": "u:63c73cc49816"
+    }
+  ],
+  "data": {
+  },
+  "id": "u:cd524426fdbf",
+  "asideResizor": false,
+  "style": {
+    "boxShadow": " 0px 0px 0px 0px transparent"
+  },
+  "pullRefresh": {
+    "disabled": true
+  }
+}
